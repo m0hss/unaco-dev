@@ -87,14 +87,11 @@ export default function Home() {
         Testimonials is a great way to increase the brand trust and awareness.
         Use this section to highlight your popular customers.
       </SectionTitle>
-
       <Testimonials />
-
       <SectionTitle id="blog" preTitle="FAQ" title="Frequently Asked Questions">
         Answer your customers possible questions here, it will increase the
         conversion rate as well as support or chat requests.
       </SectionTitle>
-
       <Faq />
       <Cta />
       {/* Scroll to Top Button */}
@@ -102,7 +99,28 @@ export default function Home() {
         <button
           onClick={scrollToTop}
           className="fixed top-4 mx-1 right-4 z-50 p-2 text-gray-500 bg-transparent border border-gray-400 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none"
-        ></button>
+          style={{ borderRadius: "50px", padding: "10px 4px" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4.5 18.75 7.5-7.5 7.5 7.5"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4.5 12.75 7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </button>
       )}
     </Container>
   );
