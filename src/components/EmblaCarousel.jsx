@@ -6,12 +6,16 @@ import Image from "next/image";
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 
 const importAllImages = (r) => r.keys().map(r);
-const slides = importAllImages(
-  require.context("@/images/", false, /\.(png|jpe?g|svg|webp)$/)
-);
 
-export function EmblaCarousel() {
+// interface EmblaCarouselProps {
+//   slides: number[];
+//   options: any; // Or type this according to the library's options definition
+// }
+export function EmblaCarousel({ slides, options }) {
   // const { slides, options } = props;
+  slides = importAllImages(
+    require.context("@/images/", false, /\.(png|jpe?g|svg|webp)$/)
+  );
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
   useDotButton(emblaApi)

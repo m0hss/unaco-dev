@@ -2,18 +2,27 @@ import React from "react";
 import { Container } from "@/components/Container";
 
 interface SectionTitleProps {
+  id?: string;
   preTitle?: string;
   title?: string;
   align?: "left" | "center";
   children?: React.ReactNode;
 }
 
-export const SectionTitle = ({id, preTitle, title, align, children}: Readonly<SectionTitleProps>) => {
+export const SectionTitle = ({
+  id,
+  preTitle,
+  title,
+  align,
+  children,
+}: Readonly<SectionTitleProps>) => {
   return (
-    <Container
+    <div
+      id={id}
       className={`flex w-full flex-col mt-4 ${
         align === "left" ? "" : "items-center justify-center text-center"
-      }`}>
+      }`}
+    >
       {preTitle && (
         <div className="text-sm font-bold tracking-wider text-sky-600 uppercase">
           {preTitle}
@@ -31,7 +40,6 @@ export const SectionTitle = ({id, preTitle, title, align, children}: Readonly<Se
           {children}
         </p>
       )}
-    </Container>
+    </div>
   );
-}
-
+};
