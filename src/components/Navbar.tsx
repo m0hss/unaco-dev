@@ -15,10 +15,10 @@ export const Navbar = () => {
 
   return (
     <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto">
+      <nav className="container relative flex flex-wrap items-center justify-between p-1 lg:p-8 mx-auto my-4 lg:my-auto sm:p-6">
         {/* Logo  */}
         <Link href="/">
-          <span className="flex items-center space-x-2 text-2xl font-medium text-bold dark:text-gray-100">
+          <span className="flex items-center space-x-2 text-2xl mx-2 font-medium text-bold dark:text-gray-100">
             <span>
               <Image
                 src="/img/logo.svg"
