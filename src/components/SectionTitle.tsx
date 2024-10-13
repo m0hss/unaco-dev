@@ -24,7 +24,7 @@ export const SectionTitle = ({
       }`}
     >
       {preTitle && (
-        <div className="text-sm font-bold tracking-wider text-sky-600 uppercase">
+        <div className="text-sm font-bold tracking-wider text-sky-700 uppercase">
           {preTitle}
         </div>
       )}

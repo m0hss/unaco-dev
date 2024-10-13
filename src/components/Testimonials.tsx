@@ -33,7 +33,7 @@ export const Testimonials = () => {
 
             <Avatar
               image={userTwoImg}
-              name="Dylan Ambrose"
+              name="Exau Future"
               title="Lead marketer at Netflix"
             />
           </div>

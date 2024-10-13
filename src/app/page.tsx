@@ -102,9 +102,7 @@ export default function Home() {
         <button
           onClick={scrollToTop}
           className="fixed top-4 mx-1 right-4 z-50 p-2 text-gray-500 bg-transparent border border-gray-400 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none"
-        >
-          ↑
-        </button>
+        ></button>
       )}
     </Container>
   );

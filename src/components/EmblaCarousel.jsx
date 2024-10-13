@@ -40,6 +40,7 @@ export function EmblaCarousel({ slides, options }) {
               className={"embla__dot".concat(
                 index === selectedIndex ? " embla__dot--selected" : ""
               )}
+              aria-label={`Slide ${index + 1}`}
             />
           ))}
         </div>

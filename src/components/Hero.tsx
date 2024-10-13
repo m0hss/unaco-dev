@@ -63,7 +63,7 @@ export const Hero = () => {
       <Container>
         <div className="flex flex-col justify-center">
           <div className="text-xl text-center text-gray-700 dark:text-white">
-            Trusted by <span className="text-sky-600">2000+</span>{" "}
+            Trusted by <span className="text-sky-700">2000+</span>{" "}
             customers worldwide
           </div>
 
