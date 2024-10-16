@@ -2,16 +2,60 @@
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import { useState, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 
 export const Navbar = () => {
+
+  const t = useTranslations('NavBar');
+
   const navigation = [
-  { name: "Product", href: "#product" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Company", href: "#company" },
-  { name: "Blog", href: "#blog" }
-];
+    { name: t("Product"), href: "#product" },
+    { name: t("Pricing"), href: "#pricing" },
+    { name: t("Company"), href: "#company" },
+    { name: t("Blog"), href: "#blog" },
+  ];
+
+  const [showLanguages, setShowLanguages] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isClient, setIsClient] = useState<boolean>(false);
+
+  const toggleLanguageMenu = () => {
+    setShowLanguages((prev) => !prev);
+  };
+
+  // // Function to toggle the language dropdown
+  // const handleLanguageChange = (lang: string) => {
+  //   setShowLanguages(false); // Close the dropdown after selection
+  //   router.push(`/${lang}`); // Navigate to selected language locale
+  // };
+
+  // Close dropdown if clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // If the click happens outside the dropdown element, close it
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowLanguages(false);
+      }
+    };
+
+    // Add the event listener to the document
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="w-full">
@@ -36,8 +80,45 @@ export const Navbar = () => {
         <div className="flex items-center gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
           <ThemeChanger />
 
+          {/* Language Toggle */}
+          <div className="relative order-1" ref={dropdownRef}>
+            <button
+              className="flex text-gray-600 items-center justify-center p-2 rounded-full hover:bg-gray-200 focus:outline-none"
+              aria-label="Toggle Language"
+              onClick={toggleLanguageMenu}
+            >
+              {/* Globe Icon SVG */}
+              <GlobeSVG />
+            </button>
+            {/* Language Dropdown */}
+            {showLanguages && (
+              <div className="absolute left-0 mt-1 w-14 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg z-50">
+                <ul className="py-0.5">
+                  <li className="px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 focus:bg-gray-100 dark:focus:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-500 cursor-pointer">
+                    <Link href="/en" className="block w-full h-full">
+                      EN
+                    </Link>
+                  </li>
+                  <li className="px-4 py-1 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 focus:bg-gray-100 dark:focus:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-500 cursor-pointer">
+                    <Link href="/fr" className="block w-full h-full">
+                      FR
+                    </Link>
+                  </li>
+
+                  <li className="px-4 py-1 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 focus:bg-gray-100 dark:focus:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-500 cursor-pointer">
+                    <Link href="/nl" className="block w-full h-full">
+                      NL
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
           {/* Search Bar */}
-          <div className=" hidden mr-3 lg:flex nav__itemr relative pl-1 " style={{ width: "130px" }}>
+          <div
+            className=" hidden mr-3 lg:flex nav__itemr relative pl-1 "
+            style={{ width: "130px" }}
+          >
             <input
               type="text"
               className="pl-8 pr-1 py-0.5 hidden text-sm md:flex lg:flex border rounded-full focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
@@ -47,20 +128,7 @@ export const Navbar = () => {
                 lineHeight: "1",
               }}
             />
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="size-4 hidden md:flex lg:flex absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-300"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            {/* <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-300">/</span> */}
+            <SearchBar />
           </div>
 
           {/* menu  */}
@@ -148,3 +216,35 @@ export const Navbar = () => {
     </div>
   );
 };
+
+const SearchBar = ({ size = 24 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    className="size-4 hidden md:flex lg:flex absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-300"
+  >
+    <path
+      fillRule="evenodd"
+      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
+const GlobeSVG = ({ size = 24 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-6 h-6"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+    />
+  </svg>
+);

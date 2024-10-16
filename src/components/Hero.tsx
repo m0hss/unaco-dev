@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import heroImg from "../../public/img/hero.png";
+import { useTranslations } from "next-intl";
 
 export const Hero = () => {
+  const t = useTranslations("HomePage");
   return (
     <>
       {/* <Container className="flex flex-wrap ">
@@ -63,8 +65,8 @@ export const Hero = () => {
       <Container>
         <div className="flex flex-col justify-center">
           <div className="text-xl text-center text-gray-700 dark:text-white">
-            Trusted by <span className="text-sky-700">2000+</span>{" "}
-            customers worldwide
+            {t('trustedBy')} <span className="text-sky-500">2000+</span>{" "}
+            {t('partnership')}
           </div>
 
           <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">

@@ -1,0 +1,25 @@
+{
+  "NavBar": {
+    "Product": "Product",
+    "Pricing": "Prijzen",
+    "Company": "Bedrijf",
+    "Blog": "Blog"
+  },
+
+  "HomePage": {
+    "trustedBy": "Vertrouwd door",
+    "partnership": "klanten wereldwijd",
+    "presentation": "Unaco Presentatie",
+    "alsoKnown": "Ook bekend als",
+    "unacoDescription": "Oprichter van UNACO (Nationale Eenheid van Congolezen) in 2014 in Zuid-Afrikaopgericht om Congolese en Afrikaanse jongeren te versterken. UNACO moedigt jongeren aan hun talenten te erkennen en bij te dragen aan de ontwikkeling van hun gemeenschappen en Afrika. Een belangrijke initiatief was een vasten tegen armoede, waarbij 975 deelnemers betrokken waren. UNACO blijft jongeren inspireren om actief vorm te geven aan een betere toekomst.",
+    "watchVideo": "Bekijk een video",
+    "learnHowToFulfill": "Leer hoe je aan je behoeften kunt voldoen",
+    "videoSectionDescription": "Deze sectie is bedoeld om een promo- of demovideo...",
+    "testimonialsPreTitle": "Getuigenissen",
+    "testimonialsTitle": "Hier is wat onze leden zeiden",
+    "testimonialsDescription": "Getuigenissen zijn een geweldige manier...",
+    "faqPreTitle": "FAQ",
+    "faqTitle": "Veelgestelde vragen",
+    "faqDescription": "Beantwoord hier de mogelijke vragen van uw klanten..."
+  }
+}

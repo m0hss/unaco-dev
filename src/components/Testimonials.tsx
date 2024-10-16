@@ -13,42 +13,48 @@ export const Testimonials = () => {
         <div className="lg:col-span-2 xl:col-auto">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Share a real <Mark>testimonial</Mark>
-              that hits some of your benefits from one of your popular customer.
+              Thanks to UNACO, I discovered my true potential. The programs and
+              <Mark>guidance provided</Mark> have inspired me to pursue my dreams and
+              contribute to my community growth. I now believe in my ability
+              to make a difference.
             </p>
 
             <Avatar
               image={userOneImg}
-              name="Sarah Steiner"
-              title="VP Sales at Google"
+              name="Amina Steiner"
+              title="Johannesburg, South Africa"
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Make sure you only pick the <Mark>right sentence</Mark>
-              to keep it short and simple.
+              The fast organized by UNACO was not just a symbolic
+              event; it brought us together for a common cause—to <Mark>fight poverty</Mark>
+              in our country. It was inspiring to be part of something bigger
+              and see real impact.
             </p>
 
             <Avatar
               image={userTwoImg}
-              name="Exau Future"
-              title="Lead marketer at Netflix"
+              name="Dylan Ambrose"
+              title="Lubumbashi, DRC"
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              This is an <Mark>awesome</Mark> landing page template I&apos;ve
-              seen. I would use this for anything.
+              Before joining UNACO, I lacked direction. The
+              movement has helped me develop <Mark>leadership skills</Mark> and provided a
+              platform to be heard. Today, I’m a stronger advocate for change in
+              my community.
             </p>
 
             <Avatar
               image={userThreeImg}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
+              name="Jean Winn"
+              title="Kinshasa, DRC"
             />
           </div>
         </div>

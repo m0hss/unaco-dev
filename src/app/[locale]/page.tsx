@@ -11,11 +11,15 @@ import { Cta } from "@/components/Cta";
 import { EmblaCarousel } from "@/components/EmblaCarousel";
 import { benefitOne, benefitTwo } from "@/components/data";
 import { useState, useEffect } from "react";
+import {useTranslations} from 'next-intl';
+
 
 export default function Home() {
   const OPTIONS = { dragFree: true, loop: true, direction: "rtl" };
   const SLIDE_COUNT = 5;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+  const t = useTranslations('HomePage');
+  console.log('Translation:', t('presentation')); // Should log the translated text
 
   // State to control the visibility of the scroll-up button
   const [showScrollUp, setShowScrollUp] = useState(false);
@@ -50,18 +54,17 @@ export default function Home() {
     });
   };
 
+
   return (
     <Container>
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       <Hero />
       <SectionTitle
         id="product"
-        preTitle="Unaco Benefits"
-        title=" Why should you contact Unaco"
+        preTitle={t('presentation')}
+        title="Exauce Kavabioko Shungu"
       >
-        For compassionate assistance, solidarity, and support, empowering
-        individuals in need across all backgrounds in the Democratic Republic of
-        Congo. Together, we foster a more inclusive and united community.
+        {t('alsoKnown')} <span className="text-sky-300">Exau Future</span> {t('unacoDescription')}
       </SectionTitle>
 
       <Benefits data={benefitOne} />
@@ -82,7 +85,7 @@ export default function Home() {
       <SectionTitle
         id="company"
         preTitle="Testimonials"
-        title="Here's what our customers said"
+        title="Here's what our members said"
       >
         Testimonials is a great way to increase the brand trust and awareness.
         Use this section to highlight your popular customers.
@@ -108,7 +111,6 @@ export default function Home() {
             stroke-width="1.5"
             stroke="currentColor"
             className="w-5 h-5"
-
           >
             <path
               stroke-linecap="round"

@@ -1,0 +1,24 @@
+{
+  "NavBar": {
+    "Product": "Product",
+    "Pricing": "Pricing",
+    "Company": "Company",
+    "Blog": "Blog"
+  },
+  "HomePage": {
+    "trustedBy": "Trusted by",
+    "partnership": "customers worldwide",
+    "presentation": "Unaco Presentation",
+    "alsoKnown": "Also known as",
+    "unacoDescription": "founded UNACO (National Unity of Congolese) in 2014 in South Africa to empower\nCongolese and African youth. UNACO encourages young people to recognize\ntheir talents and contribute to the development of their communities and\nAfrica. One significant initiative was a fast against poverty, uniting\n975 participants. UNACO continues to inspire youth to actively shape a\nbetter future.",
+    "watchVideo": "Watch a video",
+    "learnHowToFulfill": "Learn how to fulfill your needs",
+    "videoSectionDescription": "This section is to highlight a promo or demo video...",
+    "testimonialsPreTitle": "Testimonials",
+    "testimonialsTitle": "Here's what our members said",
+    "testimonialsDescription": "Testimonials is a great way to increase brand trust...",
+    "faqPreTitle": "FAQ",
+    "faqTitle": "Frequently Asked Questions",
+    "faqDescription": "Answer your customers possible questions here..."
+  }
+}

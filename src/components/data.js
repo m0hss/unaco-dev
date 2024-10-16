@@ -2,12 +2,13 @@ import {
   FaceSmileIcon,
   ChartBarSquareIcon,
   CursorArrowRaysIcon,
-  DevicePhoneMobileIcon,
+  KeyIcon,
   AdjustmentsHorizontalIcon,
-  SunIcon,
+  BoltIcon,
+  StarIcon,
 } from "@heroicons/react/24/solid";
 
-import benefitOneImg from "../../public/img/unaco-two.webp";
+import benefitOneImg from "../../public/img/boss-corp.webp";
 import benefitTwoImg from "../../public/img/exau-two.jpeg";
 
 const benefitOne = {
@@ -34,24 +35,24 @@ const benefitOne = {
 };
 
 const benefitTwo = {
-  title: "Offer more benefits here",
+  title: "Offer more benefits",
   desc: "You can use this same layout with a flip image to highlight your rest of the benefits of your product. It can also contain an image or Illustration as above section along with some bullet points.",
   image: benefitTwoImg,
   bullets: [
     {
-      title: "Mobile Responsive Template",
-      desc: "Nextly is designed as a mobile first responsive template.",
-      icon: <DevicePhoneMobileIcon />,
+      title: "Empowers Youth Talent Development",
+      desc: "Empowers Congolese and African youth to recognize and develop their talents.",
+      icon: <BoltIcon />,
     },
     {
-      title: "Powered by Next.js & TailwindCSS",
-      desc: "This template is powered by latest technologies and tools.",
-      icon: <AdjustmentsHorizontalIcon />,
+      title: "Encourages Community-Driven Growth.",
+      desc: "Provides a platform for young people to actively contribute to the development of their communities and countries.",
+      icon: <KeyIcon />,
     },
     {
-      title: "Dark & Light Mode",
-      desc: "Nextly comes with a zero-config light & dark mode. ",
-      icon: <SunIcon />,
+      title: "Promotes Unity Against Poverty",
+      desc: "Fosters unity and collaboration among young leaders to address poverty and drive social change.",
+      icon: <StarIcon />,
     },
   ],
 };

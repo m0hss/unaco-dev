@@ -2,9 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
+import { Reddit_Mono } from "next/font/google";
 
 export function Footer() {
-  const navigation = ["Product", "Pricing", "Company", "Blog"];
+  const navigation = [
+    { name: "Product", href: "#product" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "Company", href: "#company" },
+    { name: "Blog", href: "#blog" },
+  ];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
     <div className="relative">
@@ -15,7 +21,7 @@ export function Footer() {
               {" "}
               <Link
                 href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-sky-700 dark:text-gray-100"
+                className="flex items-center space-x-2 text-2xl font-medium text-sky-500 dark:text-gray-100"
               >
                 <Image
                   src="/img/logo.svg"
@@ -29,10 +35,9 @@ export function Footer() {
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              We provide assistance, love, and solidarity
-              to anyone in need, regardless of their background or
-              circumstances, helping to build a stronger, more inclusive
-              Democratic Republic of Congo.
+              We provide assistance, love, and solidarity to anyone in need,
+              regardless of their background or circumstances, helping to build
+              a stronger, more inclusive Democratic Republic of Congo.
             </div>
 
             <div className="mt-5">
@@ -57,10 +62,10 @@ export function Footer() {
               {navigation.map((item, index) => (
                 <Link
                   key={index}
-                  href="/"
+                  href={item.href}
                   className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-sky-500 focus:text-sky-500 focus:bg-sky-100 focus:outline-none dark:focus:bg-trueGray-700"
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </div>
@@ -81,24 +86,16 @@ export function Footer() {
           <div className="">
             <div>Follow us</div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="https://x.com/exau_futur" target="_blank" rel="noopener">
                 <span className="sr-only">Twitter</span>
                 <Twitter />
               </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="#" target="_blank" rel="noopener">
                 <span className="sr-only">Facebook</span>
-                <Facebook />
+                <Facebook/>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fexau_future%2F&is_from_rle"
                 target="_blank"
                 rel="noopener"
               >

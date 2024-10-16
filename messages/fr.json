@@ -1,0 +1,24 @@
+{
+  "NavBar": {
+    "Product": "Produit",
+    "Pricing": "Devis",
+    "Company": "Entreprise",
+    "Blog": "Blog"
+  },
+  "HomePage": {
+    "trustedBy": "Partenaire avec",
+    "partnership": "clients dans le monde entier",
+    "presentation": "Présentation de l'Unaco",
+    "alsoKnown": "Également connu sous le nom de",
+    "unacoDescription": "fondateur de UNACO (Union Nationale des Congolais) en 2014 en Afrique du Sud pour autonomiser la jeunesse congolaise et africaine. UNACO encourage les jeunes à reconnaître leurs talents et à contribuer au développement de leurs communautés et de l'Afrique. Une initiative importante a été un jeûne contre la pauvreté, réunissant 975 participants. UNACO continue d'inspirer les jeunes à façonner activement un avenir meilleur.",
+    "watchVideo": "Regardez une vidéo",
+    "learnHowToFulfill": "Apprenez à répondre à vos besoins",
+    "videoSectionDescription": "Cette section vise à mettre en évidence...",
+    "testimonialsPreTitle": "Témoignages",
+    "testimonialsTitle": "Voici ce que nos membres ont dit",
+    "testimonialsDescription": "Les témoignages sont un excellent moyen...",
+    "faqPreTitle": "FAQ",
+    "faqTitle": "Questions fréquemment posées",
+    "faqDescription": "Répondez aux questions possibles de vos clients ici..."
+  }
+}
