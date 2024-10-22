@@ -94,7 +94,7 @@ export const Navbar = () => {
           : ""
       }`}
     >
-      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-2 mx-auto my-4 lg:py-0 sm:p-6">
+      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-0 mx-auto my-4 lg:py-0 sm:p-6">
         {/* Logo  */}
         <Link href="/">
           <span className="flex items-center space-x-2 text-2xl font-medium text-bold dark:text-gray-100">
