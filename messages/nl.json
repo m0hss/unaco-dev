@@ -1,11 +1,15 @@
 {
-  "NavBar": {
+  "HeaderFooter": {
     "Product": "Product",
     "Pricing": "Prijzen",
     "Company": "Bedrijf",
-    "Blog": "Blog"
+    "Blog": "Blog",
+    "followUs": "Seuraa meitä",
+    "description": "We bieden hulp, liefde en solidariteit aan iedereen in nood, ongeacht hun achtergrond of omstandigheden, en helpen zo te bouwen aan een sterkere, meer inclusieve Democratische Republiek Congo.",
+    "terms": "Voorwaarden",
+    "privacy": "Privacy",
+    "legal": "Juridisch"
   },
-
   "HomePage": {
     "trustedBy": "Vertrouwd door",
     "partnership": "klanten wereldwijd",
@@ -13,13 +17,66 @@
     "alsoKnown": "Ook bekend als",
     "unacoDescription": "Oprichter van UNACO (Nationale Eenheid van Congolezen) in 2014 in Zuid-Afrikaopgericht om Congolese en Afrikaanse jongeren te versterken. UNACO moedigt jongeren aan hun talenten te erkennen en bij te dragen aan de ontwikkeling van hun gemeenschappen en Afrika. Een belangrijke initiatief was een vasten tegen armoede, waarbij 975 deelnemers betrokken waren. UNACO blijft jongeren inspireren om actief vorm te geven aan een betere toekomst.",
     "watchVideo": "Bekijk een video",
-    "learnHowToFulfill": "Leer hoe je aan je behoeften kunt voldoen",
-    "videoSectionDescription": "Deze sectie is bedoeld om een promo- of demovideo...",
+    "learnHowToFulfill": "Veel evenementen om naar uit te kijken",
+    "videoSectionDescription": "Nationale tv-rapport over Unaco.",
     "testimonialsPreTitle": "Getuigenissen",
     "testimonialsTitle": "Hier is wat onze leden zeiden",
     "testimonialsDescription": "Getuigenissen zijn een geweldige manier...",
     "faqPreTitle": "FAQ",
     "faqTitle": "Veelgestelde vragen",
-    "faqDescription": "Beantwoord hier de mogelijke vragen van uw klanten..."
+    "faqDescription": "Eventuele vragen van onze klanten..."
+  },
+  "Benefits": {
+    "one": {
+      "title": "Onze Missie",
+      "description": "Bij UNACO zetten we ons in om een betekenisvolle verandering teweeg te brengen door te investeren in het potentieel van onze jeugd en samenwerking tussen ondernemers te bevorderen. We zijn toegewijd aan het creëren van kansen die individuen vooruithelpen en bijdragen aan de langetermijngroei van de Democratische Republiek Congo en Afrika. Hieronder staan de belangrijkste pijlers van onze missie:",
+      "bullets": [
+        {
+          "title": "Vooruitgang van de Jeugd:",
+          "desc": "Jonge Congolezen voorzien van vaardigheden en kansen om vooruitgang te boeken en bij te dragen aan nationale ontwikkeling."
+        },
+        {
+          "title": "Ondernemers Eenheid",
+          "desc": "Congolese en Afrikaanse ondernemers samenbrengen om gezamenlijk groei in de DRC en Afrika te stimuleren."
+        },
+        {
+          "title": "Toekomstige Ontwikkeling",
+          "desc": "Een sterkere, welvarendere Democratische Republiek Congo vormgeven door middel van innovatie, visie en collectieve inspanning."
+        }
+      ]
+    },
+    "two": {
+      "title": "Meer Voordelen Bieden",
+      "description": "Biedt Congolese en Afrikaanse jongeren de mogelijkheid hun talenten te ontwikkelen en actief bij te dragen aan gemeenschapsgerichte groei, terwijl het eenheid promoot om armoede te bestrijden en sociale verandering teweeg te brengen.",
+      "bullets": [
+        {
+          "title": "Jong Talent Ontwikkelen",
+          "desc": "Biedt Congolese en Afrikaanse jongeren de mogelijkheid om hun talenten te herkennen en te ontwikkelen."
+        },
+        {
+          "title": "Bevordert Gemeenschapsgerichte Groei",
+          "desc": "Biedt een platform voor jongeren om actief bij te dragen aan de ontwikkeling van hun gemeenschappen en landen."
+        },
+        {
+          "title": "Bevordert Eenheid Tegen Armoede",
+          "desc": "Bevordert eenheid en samenwerking tussen jonge leiders om armoede aan te pakken en sociale verandering teweeg te brengen."
+        }
+      ]
+    }
+  },
+  "Hero": [
+    {
+      "title": "Aanmelden 🇨🇩",
+      "desc": "Houd er rekening mee dat er kosten verbonden zijn aan de inschrijvingsformulieren voorafgaand aan het interview, die bedoeld zijn om jongeren echt te helpen hun roeping te ontdekken. \n Aarzel niet om vragen te stellen of verzoeken in te dienen, wij zijn hier om u te helpen en deel uit te maken van ons team."
+    },
+    {
+      "title": "Onze Trainingen 🔥",
+      "desc": "In overeenstemming met onze opleidingsinspanningen heeft elke jongere recht op een persoonlijk interview met een lid van ons team, die zorgvuldig op uw zorgen zal ingaan en u zal begeleiden naar het carrièrepad dat het beste bij uw ambities past."
+    }
+  ],
+  "CTA": {
+    "joinUS": "Klaar om lid te worden van ons team?",
+    "sendEmail": "Stuur ons gewoon een e-mail",
+    "contact": "Neem contact met ons op"
   }
 }

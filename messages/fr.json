@@ -1,9 +1,14 @@
 {
-  "NavBar": {
+  "HeaderFooter": {
     "Product": "Produit",
     "Pricing": "Devis",
     "Company": "Entreprise",
-    "Blog": "Blog"
+    "Blog": "Blog",
+    "followUs": "Suivez nous",
+    "description": "Nous apportons de l'aide, de l'amour et de la solidarité à toute personne dans le besoin, quelle que soit son origine ou sa situation, afin de contribuer à la construction d'une République démocratique du Congo plus forte et plus solidaire.",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Vie privée ",
+    "legal": "Juridique"
   },
   "HomePage": {
     "trustedBy": "Partenaire avec",
@@ -12,13 +17,65 @@
     "alsoKnown": "Également connu sous le nom de",
     "unacoDescription": "fondateur de UNACO (Union Nationale des Congolais) en 2014 en Afrique du Sud pour autonomiser la jeunesse congolaise et africaine. UNACO encourage les jeunes à reconnaître leurs talents et à contribuer au développement de leurs communautés et de l'Afrique. Une initiative importante a été un jeûne contre la pauvreté, réunissant 975 participants. UNACO continue d'inspirer les jeunes à façonner activement un avenir meilleur.",
     "watchVideo": "Regardez une vidéo",
-    "learnHowToFulfill": "Apprenez à répondre à vos besoins",
-    "videoSectionDescription": "Cette section vise à mettre en évidence...",
+    "learnHowToFulfill": "De nombreux événements à venir",
+    "videoSectionDescription": "Reportage de la TV national à propos de UNACO",
     "testimonialsPreTitle": "Témoignages",
     "testimonialsTitle": "Voici ce que nos membres ont dit",
     "testimonialsDescription": "Les témoignages sont un excellent moyen...",
-    "faqPreTitle": "FAQ",
     "faqTitle": "Questions fréquemment posées",
-    "faqDescription": "Répondez aux questions possibles de vos clients ici..."
+    "faqDescription": "Questions éventuelles de nos clients .."
+  },
+  "Benefits": {
+    "one": {
+      "title": "Notre Mission",
+      "description": "Chez UNACO, nous nous engageons à provoquer un changement significatif en investissant dans le potentiel de notre jeunesse et en favorisant la collaboration entre entrepreneurs. Nous nous consacrons à créer des opportunités qui élèvent les individus et contribuent à la croissance à long terme de la République Démocratique du Congo et de l'Afrique. Voici les piliers clés de notre mission :",
+      "bullets": [
+        {
+          "title": "Avancement des Jeunes",
+          "desc": "Doter les jeunes Congolais de compétences et d'opportunités pour stimuler le progrès et contribuer au développement national."
+        },
+        {
+          "title": "Unité Entrepreneuriale",
+          "desc": "Rassembler les entrepreneurs congolais et africains pour favoriser ensemble la croissance en RDC et en Afrique."
+        },
+        {
+          "title": "Développement Futur",
+          "desc": "Façonner une République Démocratique du Congo plus forte et prospère grâce à l'innovation, la vision et l'effort collectif."
+        }
+      ]
+    },
+    "two": {
+      "title": "Les avantages",
+      "description": "Aider les jeunes Congolais et Africains à développer leurs talents et à contribuer activement à la croissance communautaire, tout en promouvant l'unité pour lutter contre la pauvreté et stimuler le changement social.",
+      "bullets": [
+        {
+          "title": "Autonomie du Développement des Talents des Jeunes",
+          "desc": "Autonomiser les jeunes Congolais et Africains à reconnaître et développer leurs talents."
+        },
+        {
+          "title": "Encourage la Croissance Axée sur la Communauté",
+          "desc": "Offre une plateforme pour que les jeunes contribuent activement au développement de leurs communautés et de leurs pays."
+        },
+        {
+          "title": "Favorise l'Unité Contre la Pauvreté",
+          "desc": "Favorise l'unité et la collaboration entre jeunes leaders pour s'attaquer à la pauvreté et provoquer le changement social."
+        }
+      ]
+    }
+  },
+  "Hero": [
+    {
+      "title": "Inscrivez-vous 🇨🇩",
+      "desc": "Veuillez noter qu'il y a des frais pour les formulaires d'inscription avant l'entretien, visant à aider les jeunes à découvrir véritablement leur vocation. \n N'hésitez pas à poser des questions ou à faire des demandes, nous sommes là pour apporter de l'aide."
+    },
+    {
+      "title": "Nos Formation 🔥",
+      "desc": "Dans le cadre de nos efforts de formation, chaque jeune a droit à un entretien personnalisé avec un membre de notre équipe, qui répondra soigneusement à vos préoccupations et vous guidera vers la voie professionnelle qui correspond le mieux à vos aspirations."
+    }
+  ],
+  "CTA": {
+    "joinUS": "Prêt à rejoindre notre équipe?",
+    "sendEmail": "Il suffit de nous envoyer un e-mail",
+    "contact": "Nous Contacter"
   }
 }

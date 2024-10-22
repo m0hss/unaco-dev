@@ -1,9 +1,14 @@
 {
-  "NavBar": {
+  "HeaderFooter": {
     "Product": "Product",
     "Pricing": "Pricing",
     "Company": "Company",
-    "Blog": "Blog"
+    "Blog": "Blog",
+    "followUs": "Follow us",
+    "description": "We provide assistance, love, and solidarity to anyone in need, regardless of their background or circumstances, helping to build a stronger, more inclusive Democratic Republic of Congo.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "legal": "Legal"
   },
   "HomePage": {
     "trustedBy": "Trusted by",
@@ -12,13 +17,66 @@
     "alsoKnown": "Also known as",
     "unacoDescription": "founded UNACO (National Unity of Congolese) in 2014 in South Africa to empower\nCongolese and African youth. UNACO encourages young people to recognize\ntheir talents and contribute to the development of their communities and\nAfrica. One significant initiative was a fast against poverty, uniting\n975 participants. UNACO continues to inspire youth to actively shape a\nbetter future.",
     "watchVideo": "Watch a video",
-    "learnHowToFulfill": "Learn how to fulfill your needs",
-    "videoSectionDescription": "This section is to highlight a promo or demo video...",
+    "learnHowToFulfill": "Plenty of events to look forward",
+    "videoSectionDescription": "National tv report on Unaco",
     "testimonialsPreTitle": "Testimonials",
     "testimonialsTitle": "Here's what our members said",
-    "testimonialsDescription": "Testimonials is a great way to increase brand trust...",
+    "testimonialsDescription": "That means a lot for us",
     "faqPreTitle": "FAQ",
     "faqTitle": "Frequently Asked Questions",
     "faqDescription": "Answer your customers possible questions here..."
+  },
+  "Benefits": {
+    "one": {
+      "title": "Our Mission",
+      "description": "At UNACO, we are involved to drive meaningful change by investing in the potential of our youth and fostering collaboration among entrepreneurs. We are committed to creating opportunities that uplift individuals and contribute to the long-term growth of the Democratic Republic of Congo and Africa. Below are the key pillars of our mission:",
+      "bullets": [
+        {
+          "title": "Youth Advancement:",
+          "desc": "Equipping young Congolese with skills and opportunities to drive progress and contribute to national development."
+        },
+        {
+          "title": "Entrepreneurial Unity",
+          "desc": "Bringing together Congolese and African entrepreneurs to collaboratively foster growth in the DRC and Africa."
+        },
+        {
+          "title": "Future Development",
+          "desc": "Shaping a stronger, more prosperous Democratic Republic of Congo through innovation, vision, and collective effort."
+        }
+      ]
+    },
+    "two": {
+      "title": "Offer more benefits",
+      "description": "Empowers Congolese and African youth to develop their talents and actively contribute to community-driven growth, while promoting unity to combat poverty and drive social change.",
+      "bullets": [
+        {
+          "title": "Empowers Youth Talent Development",
+          "desc": "Empowers Congolese and African youth to recognize and develop their talents."
+        },
+        {
+          "title": "Encourages Community-Driven Growth",
+          "desc": "Provides a platform for young people to actively contribute to the development of their communities and countries."
+        },
+        {
+          "title": "Promotes Unity Against Poverty",
+          "desc": "Fosters unity and collaboration among young leaders to address poverty and drive social change."
+        }
+      ]
+    }
+  },
+  "Hero": [
+    {
+      "title": "Register Now 🇨🇩",
+      "desc": "Kindly note that there is a fee for the registration forms before the interview, aimed at helping young people truly discover their vocation. \n Feel free to ask any questions or make requests, we are here to assist you and be part of our team."
+    },
+    {
+      "title": "Our Training 🔥",
+      "desc": "In line with our training efforts, each young person is entitled to a personalized interview with a member of our team, who will carefully address your concerns and guide you towards the career path that best suits your aspirations."
+    }
+  ],
+  "CTA": {
+    "joinUS": "Ready to join our team?",
+    "sendEmail": "Easy peasy leamon squeezy just send us an e-mail",
+    "contact": "Contact Us"
   }
 }

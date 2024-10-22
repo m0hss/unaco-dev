@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
+import {motion} from "framer-motion";
 
 import userOneImg from "../../public/img/user1.jpg";
 import userTwoImg from "../../public/img/user2.jpg";
@@ -8,11 +9,29 @@ import userThreeImg from "../../public/img/user3.jpg";
 
 export const Testimonials = () => {
   return (
-    <Container>
+    <Container className="flex flex-row gap-2">
+       <motion.div
+      variants={{
+        hidden: {
+          opacity: 0,
+          x: -20,
+        },
+
+        visible: {
+          opacity: 1,
+          x: 0,
+        },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      transition={{ duration: 0.5, delay: 0.1 }}
+      viewport={{ once: true }}
+      className="animate_left"
+    >
       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
-        <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
+        <div className="lg:col-span-2 sm:col-span-1 xl:col-auto">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-4 xl:px-14 rounded-2xl py-4 xl:py-14 dark:bg-trueGray-800">
+            <p className="xl:text-2xl text-xl  leading-normal ">
               Thanks to UNACO, I discovered my true potential. The programs and
               <Mark>guidance provided</Mark> have inspired me to pursue my dreams and
               contribute to my community growth. I now believe in my ability
@@ -27,8 +46,8 @@ export const Testimonials = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-4 py-4 xl:px-14 rounded-2xl xl:py-14 dark:bg-trueGray-800">
+            <p className="xl:text-2xl text-xl leading-normal ">
               The fast organized by UNACO was not just a symbolic
               event; it brought us together for a common cause—to <Mark>fight poverty</Mark>
               in our country. It was inspiring to be part of something bigger
@@ -43,8 +62,8 @@ export const Testimonials = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-4 py-4 xl:px-14 rounded-2xl xl:py-14 dark:bg-trueGray-800">
+            <p className="xl:text-2xl text-xl  leading-normal ">
               Before joining UNACO, I lacked direction. The
               movement has helped me develop <Mark>leadership skills</Mark> and provided a
               platform to be heard. Today, I’m a stronger advocate for change in
@@ -59,6 +78,7 @@ export const Testimonials = () => {
           </div>
         </div>
       </div>
+      </motion.div>
     </Container>
   );
 };

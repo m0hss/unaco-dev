@@ -1,41 +1,49 @@
 "use client";
 
 import { Container } from "@/components/Container";
+import { Partners } from "@/components/Partners";
 import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
+import { ShapeTab } from "@/components/ShapeTab";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
-import { EmblaCarousel } from "@/components/EmblaCarousel";
-import { benefitOne, benefitTwo } from "@/components/data";
-import { useState, useEffect } from "react";
-import {useTranslations} from 'next-intl';
 
+import { BenefitData } from "@/components/Benefits/data";
+import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { SwiperCarousel } from "@/components/Carousel";
+import SwiperComponent from "@/components/SwiperComp";
+import {
+  Disclosure,
+  Transition,
+  DisclosurePanel,
+  DisclosureButton,
+} from "@headlessui/react";
 
 export default function Home() {
-  const OPTIONS = { dragFree: true, loop: true, direction: "rtl" };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-  const t = useTranslations('HomePage');
-  console.log('Translation:', t('presentation')); // Should log the translated text
+  const t = useTranslations("HomePage");
+  const { benefitOne, benefitTwo } = BenefitData();
 
   // State to control the visibility of the scroll-up button
   const [showScrollUp, setShowScrollUp] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   // Function to handle scroll event
   const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const fullHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY;
 
-    // Show button only when the user has scrolled to the bottom 20% of the page
-    if (scrollTop + windowHeight > fullHeight * 0.85) {
-      setShowScrollUp(true);
+    // Check if scrolling up
+    if (scrollTop < lastScrollTop && scrollTop > 100) {
+      setShowScrollUp(true); // Show button when scrolling up and scrolled past 100px
     } else {
-      setShowScrollUp(false);
+      setShowScrollUp(false); // Hide button when scrolling down or not far enough
     }
+
+    // Update last scroll position
+    setLastScrollTop(scrollTop);
   };
 
   // Add/remove scroll event listener
@@ -44,7 +52,8 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastScrollTop]);
 
   // Function to scroll to top
   const scrollToTop = () => {
@@ -54,63 +63,68 @@ export default function Home() {
     });
   };
 
-
   return (
     <Container>
-      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-      <Hero />
+      <SwiperCarousel />
+      <Partners />
+      <ShapeTab />
+
       <SectionTitle
         id="product"
-        preTitle={t('presentation')}
+        preTitle={t("presentation")}
         title="Exauce Kavabioko Shungu"
       >
-        {t('alsoKnown')} <span className="text-sky-300">Exau Future</span> {t('unacoDescription')}
+        {t("alsoKnown")} <span className="text-sky-300">Exau Future</span>{" "}
+        {t("unacoDescription")}
       </SectionTitle>
-
       <Benefits data={benefitOne} />
       <Benefits id="blog" imgPos="right" data={benefitTwo} />
+      {/* <Benefits id="pricing" bullets={false} data={benefitThree} />
+      <Hero/> */}
 
+      <SwiperComponent />
+
+      <ShapeTab />
       <SectionTitle
         id="pricing"
-        preTitle="Watch a video"
-        title="Learn how to fullfil your needs"
+        preTitle={t("watchVideo")}
+        title={t("learnHowToFulfill")}
       >
-        This section is to highlight a promo or demo video of your product.
-        Analysts says a landing page with video has 3% more conversion rate. So,
-        don&apos;t forget to add one. Just like this.
+        {t("videoSectionDescription")}
       </SectionTitle>
 
       <Video videoId="fZ0D0cnR88E" />
+      <ShapeTab />
 
       <SectionTitle
         id="company"
-        preTitle="Testimonials"
-        title="Here's what our members said"
+        preTitle={t("testimonialsPreTitle")}
+        title={t("testimonialsTitle")}
       >
-        Testimonials is a great way to increase the brand trust and awareness.
-        Use this section to highlight your popular customers.
+        {/* {t('testimonialsDescription')} */}
       </SectionTitle>
       <Testimonials />
-      <SectionTitle id="blog" preTitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
+      <ShapeTab />
+      <SectionTitle preTitle="FAQ" title={t("faqTitle")}>
+        {t("faqDescription")}
       </SectionTitle>
       <Faq />
+      <ShapeTab />
       <Cta />
       {/* Scroll to Top Button */}
       {showScrollUp && (
         <button
           onClick={scrollToTop}
-          className="fixed top-4 mx-1 right-4 z-50 p-2 text-gray-500 bg-transparent border border-gray-400 rounded-full shadow-lg hover:bg-gray-100 focus:outline-none"
-          style={{ borderRadius: "50px", padding: "10px 4px" }}
+          className="fixed z-40 flex items-center justify-center transition duration-300 bg-sky-400 rounded-full shadow-lg right-5 bottom-[5.5rem] w-14 h-14 focus:outline-none hover:bg-sky-600 focus:bg-sky-600 ease"
+          style={{ borderRadius: "50px" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            stroke-width="2"
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-7 h-7 text-white"
           >
             <path
               stroke-linecap="round"

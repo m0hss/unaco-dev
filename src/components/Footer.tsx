@@ -1,19 +1,41 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
-import { Reddit_Mono } from "next/font/google";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 export function Footer() {
+  const t = useTranslations("HeaderFooter");
+
   const navigation = [
-    { name: "Product", href: "#product" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Company", href: "#company" },
-    { name: "Blog", href: "#blog" },
+    { name: t("Product"), href: "#product" },
+    { name: t("Pricing"), href: "#pricing" },
+    { name: t("Company"), href: "#company" },
+    { name: t("Blog"), href: "#blog" },
   ];
-  const legal = ["Terms", "Privacy", "Legal"];
+  const legal = [t("terms"), t("privacy"), t("legal")];
   return (
-    <div className="relative">
+    <motion.div
+      variants={{
+        hidden: {
+          opacity: 0,
+          x: -20,
+        },
+
+        visible: {
+          opacity: 1,
+          x: 0,
+        },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      transition={{ duration: 0.5, delay: 0.1 }}
+      viewport={{ once: true }}
+      className="animate_left relative"
+    >
       <Container>
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
           <div className="lg:col-span-2">
@@ -35,9 +57,7 @@ export function Footer() {
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              We provide assistance, love, and solidarity to anyone in need,
-              regardless of their background or circumstances, helping to build
-              a stronger, more inclusive Democratic Republic of Congo.
+              {t("description")}
             </div>
 
             <div className="mt-5">
@@ -92,7 +112,7 @@ export function Footer() {
               </a>
               <a href="#" target="_blank" rel="noopener">
                 <span className="sr-only">Facebook</span>
-                <Facebook/>
+                <Facebook />
               </a>
               <a
                 href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fexau_future%2F&is_from_rle"
@@ -112,7 +132,7 @@ export function Footer() {
 
         <div className="mt-10 text-sm text-center text-gray-600 dark:text-gray-400">
           Copyright © {new Date().getFullYear()}. Made by{" "}
-          <a href="https://m0fix.me/" target="_blank" rel="noopener">
+          <a href="https://tn.m0fix.me/" target="_blank" rel="noopener">
             M☪︎FI🕷
           </a>{" "}
           {/* Illustrations from{" "}
@@ -121,9 +141,7 @@ export function Footer() {
           </a> */}
         </div>
       </Container>
-      {/* Do not remove this */}
-      {/* <Backlink /> */}
-    </div>
+    </motion.div>
   );
 }
 

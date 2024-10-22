@@ -3,8 +3,11 @@ import React from "react";
 import { Container } from "@/components/Container";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
+import { useTranslations } from "next-intl";
+import { ShapeTab } from "./ShapeTab";
 
 export const Faq = () => {
+  // const t = useTranslations('FAQ');
   return (
     <Container className="!p-0">
       <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
