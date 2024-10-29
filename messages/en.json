@@ -78,5 +78,12 @@
     "joinUS": "Ready to join our team?",
     "sendEmail": "Easy peasy leamon squeezy just send us an e-mail",
     "contact": "Contact Us"
+  },
+  "Widget": {
+    "help": "How can we help?",
+    "response": "We usually respond in a few hours",
+    "name": "Name",
+    "email": "Email Address",
+    "sendEmail": "Send Message"
   }
 }

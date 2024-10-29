@@ -7,6 +7,7 @@ import {
   DisclosurePanel,
   DisclosureButton,
 } from "@headlessui/react";
+import { useTranslations } from "next-intl";
 
 export function PopupWidget() {
   const {
@@ -21,7 +22,7 @@ export function PopupWidget() {
 
   const [isSuccess, setIsSuccess] = useState(false);
   const [Message, setMessage] = useState("");
-
+  const t = useTranslations("Widget");
   const userName = useWatch({ control, name: "name", defaultValue: "Someone" });
 
   const onSubmit = async (data: any, e: any) => {
@@ -58,7 +59,7 @@ export function PopupWidget() {
       <Disclosure>
         {({ open }) => (
           <>
-            <DisclosureButton className="fixed z-40 flex items-center justify-center transition duration-300 bg-sky-400 rounded-full shadow-lg right-5 bottom-5 w-14 h-14 focus:outline-none hover:bg-sky-600 focus:bg-sky-600 ease">
+            <DisclosureButton className="fixed flex items-center justify-center transition duration-300 bg-sky-400 rounded-full shadow-lg right-5 bottom-5 w-14 h-14 focus:outline-none hover:bg-sky-600 focus:bg-sky-600 ease">
               <span className="sr-only">Open Contact form Widget</span>
               <Transition
                 show={!open}
@@ -110,36 +111,34 @@ export function PopupWidget() {
               </Transition>
             </DisclosureButton>
             <Transition
-              className="fixed  z-50 bottom-[100px] top-0 right-0  left-0 sm:top-auto sm:right-5 sm:left-auto"
+              className="fixed z-50 bottom-[88px] sm:bottom-[100px] top-16 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto"
               enter="transition duration-200 transform ease"
               enterFrom="opacity-0 translate-y-5"
               leave="transition duration-200 transform ease"
               leaveTo="opacity-0 translate-y-5"
               as="div"
             >
-              <DisclosurePanel className=" flex flex-col  overflow-hidden left-0 h-full w-full sm:w-[350px] min-h-[250px] sm:h-[600px] border border-gray-300 dark:border-gray-800 bg-white shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
-                <div className="flex flex-col items-center justify-center h-32 p-5 bg-sky-600">
-                  <h3 className="text-lg text-white">How can we help?</h3>
-                  <p className="text-white opacity-50">
-                    We usually respond in a few hours
-                  </p>
+              <DisclosurePanel className=" flex flex-col  overflow-hidden left-0 h-full w-full sm:w-[350px] min-h-[250px] sm:h-[560px] border border-gray-300 dark:border-gray-800 bg-white shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
+                <div className="flex flex-col items-center justify-center h-30 p-5 bg-sky-600">
+                  <h3 className="text-lg text-white">{t("help")}</h3>
+                  <p className="text-white opacity-50">{t("response")}</p>
                 </div>
                 <div className="flex-grow h-full p-6 overflow-auto bg-gray-50 ">
                   {!isSubmitSuccessful && (
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <input
                         type="hidden"
-                        value="YOUR_ACCESS_KEY_HERE"
+                        value="e4439774-352a-46f1-a1a3-d72c39c784d9"
                         {...register("apikey")}
                       />
                       <input
                         type="hidden"
-                        value={`${userName} sent a message from Nextly`}
+                        value={`${userName} sent you a message from UNACO Website`}
                         {...register("subject")}
                       />
                       <input
                         type="hidden"
-                        value="Nextly Template"
+                        value="UNACO Website"
                         {...register("from_name")}
                       />
                       <input
@@ -154,7 +153,7 @@ export function PopupWidget() {
                           htmlFor="full_name"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Full Name
+                          {t("name")}
                         </label>
                         <input
                           type="text"
@@ -164,7 +163,7 @@ export function PopupWidget() {
                             required: "Full name is required",
                             maxLength: 80,
                           })}
-                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
+                          className={`w-full text-sm px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
                             errors.name
                               ? "border-red-600 focus:border-red-600 ring-red-100"
                               : "border-gray-300 focus:border-sky-600 ring-sky-100"
@@ -182,7 +181,7 @@ export function PopupWidget() {
                           htmlFor="email"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Email Address
+                          {t("email")}
                         </label>
                         <input
                           type="email"
@@ -194,8 +193,8 @@ export function PopupWidget() {
                               message: "Please enter a valid email",
                             },
                           })}
-                          placeholder="you@company.com"
-                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
+                          placeholder="Gmail, Outlook ..."
+                          className={`w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
                             errors.email
                               ? "border-red-600 focus:border-red-600 ring-red-100"
                               : "border-gray-300 focus:border-sky-600 ring-sky-100"
@@ -214,7 +213,7 @@ export function PopupWidget() {
                           htmlFor="message"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Your Message
+                          Message
                         </label>
 
                         <textarea
@@ -224,7 +223,7 @@ export function PopupWidget() {
                             required: "Enter your Message",
                           })}
                           placeholder="Your Message"
-                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md h-28 focus:outline-none focus:ring   ${
+                          className={`w-full px-3 py-2 text-sm text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md h-28 focus:outline-none focus:ring   ${
                             errors.message
                               ? "border-red-600 focus:border-red-600 ring-red-100"
                               : "border-gray-300 focus:border-sky-600 ring-sky-100"
@@ -264,23 +263,23 @@ export function PopupWidget() {
                               ></path>
                             </svg>
                           ) : (
-                            "Send Message"
+                            t('sendEmail')
                           )}
                         </button>
                       </div>
                       <p
-                        className="text-xs text-center text-gray-400"
+                        className="text-xs text-center mt-2 text-gray-400"
                         id="result"
                       >
                         <span>
                           Powered by{" "}
                           <a
-                            href="https://Web3Forms.com"
+                            href=""
                             className="text-gray-600"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Web3Forms
+                            M☪︎FIX
                           </a>
                         </span>
                       </p>

@@ -78,5 +78,12 @@
     "joinUS": "Klaar om lid te worden van ons team?",
     "sendEmail": "Stuur ons gewoon een e-mail",
     "contact": "Neem contact met ons op"
+  },
+  "Widget": {
+    "help": "Hoe kunnen we u helpen?",
+    "response": "We reageren meestal binnen enkele uren",
+    "name": "Naam",
+    "email": "E-mailadres",
+    "sendEmail": "Bericht verzenden"
   }
 }

@@ -9,11 +9,12 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
+  useClose,
 } from "@headlessui/react";
 
 export const Navbar = () => {
   const t = useTranslations("HeaderFooter");
-
+  let close = useClose();
   const navigation = [
     { name: t("Product"), href: "#product" },
     { name: t("Pricing"), href: "#pricing" },
@@ -48,7 +49,7 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Sticky menu
@@ -85,6 +86,65 @@ export const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const disclosureButtonRef = useRef<HTMLButtonElement | null>(null);
+  const disclosurePanelRef = useRef<HTMLDivElement | null>(null);
+  const prevScrollY = useRef(0);
+  
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        disclosurePanelRef.current &&
+        !disclosurePanelRef.current.contains(event.target as Node) &&
+        disclosureButtonRef.current &&
+        !disclosureButtonRef.current.contains(event.target as Node)
+      ) {
+        // Close the Disclosure if click is outside
+        disclosureButtonRef.current?.click();
+      }
+    };
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Close the Disclosure if scrolling up (toward the top)
+      if (currentScrollY < prevScrollY.current && disclosurePanelRef.current) {
+        disclosureButtonRef.current?.click();
+      }
+
+      // Update the previous scroll position
+      prevScrollY.current = currentScrollY;
+    };
+
+    // Attach listeners when the panel is open
+    document.addEventListener("mousedown", handleOutsideClick);
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup listeners on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleButtonClick = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    isOpen: boolean,
+    setOpen: (value: boolean) => void,
+    close: () => void
+  ) => {
+    if (window.scrollY === 0) {
+      setOpen(!isOpen); // Directly toggle if already at the top
+    } else {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY === 0) {
+          disclosureButtonRef.current?.click(); // Open the panel when at the top
+        }
+      });
+    }
+  };
 
   return (
     <header
@@ -189,6 +249,15 @@ export const Navbar = () => {
             <>
               <DisclosureButton
                 aria-label="Toggle Menu"
+                ref={disclosureButtonRef}
+                onClick={(event) =>
+                  handleButtonClick(
+                    event,
+                    open,
+                    open ? close : (value) => (open = value),
+                    close
+                  )
+                }
                 className="text-gray-500 flex rounded-md lg:hidden hover:text-sky-500 focus:text-sky-500 focus:bg-sky-100 focus:outline-none dark:focus:bg-trueGray-700"
               >
                 {/* Custom Hamburger Button */}
@@ -211,7 +280,10 @@ export const Navbar = () => {
                 </div>
               </DisclosureButton>
 
-              <DisclosurePanel className="flex flex-wrap w-full my-5 lg:hidden backdrop-blur-2xl ">
+              <DisclosurePanel
+                ref={disclosurePanelRef}
+                className="flex flex-col w-full my-5 lg:hidden z-50"
+              >
                 <>
                   {navigation.map((item, index) => (
                     <Link
