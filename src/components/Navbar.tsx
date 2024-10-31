@@ -14,7 +14,7 @@ import {
 
 export const Navbar = () => {
   const t = useTranslations("HeaderFooter");
-  let close = useClose();
+  // let close = useClose();
   const navigation = [
     { name: t("Product"), href: "#product" },
     { name: t("Pricing"), href: "#pricing" },
@@ -43,32 +43,8 @@ export const Navbar = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // Sticky menu
-  // const handleStickyMenu = () => {
-  //   if (window.scrollY >= 80) {
-  //     setStickyMenu(true);
-  //   } else {
-  //     setStickyMenu(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleStickyMenu);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleStickyMenu); // Cleanup event listener
-  //   };
-  // }, []);
 
   const toggleLanguageMenu = () => {
     setShowLanguages((prev) => !prev);
@@ -93,11 +69,11 @@ export const Navbar = () => {
     <header
       className={`w-full  ${
         stickyMenu && scrollDirectionUp
-          ? "sticky lg:pb-4 shadow transition duration-100 dark:text-gray-100"
+          ? "sticky lg:pb-0 shadow transition duration-100 dark:text-gray-100"
           : ""
       }`}
     >
-      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-0 mx-auto my-4 lg:py-0 sm:p-6">
+      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-0 mx-auto my-4 lg:py-0 sm:px-8">
         {/* Logo  */}
         <Link href="/">
           <span className="flex items-center space-x-2 text-2xl font-medium text-bold dark:text-gray-100">
@@ -192,14 +168,6 @@ export const Navbar = () => {
             <>
               <DisclosureButton
                 aria-label="Toggle Menu"
-                // onClick={(event) =>
-                //   handleButtonClick(
-                //     event,
-                //     open,
-                //     open ? close : (value) => (open = value),
-                //     close
-                //   )
-                // }
                 className="text-gray-500 flex rounded-md lg:hidden hover:text-sky-500 focus:text-sky-500 focus:bg-sky-100 focus:outline-none dark:focus:bg-trueGray-700"
               >
                 {/* Custom Hamburger Button */}
@@ -224,37 +192,29 @@ export const Navbar = () => {
               <DisclosurePanel
                 className={`${
                   stickyMenu && scrollDirectionUp
-                    ? "fixed top-[64px] h-[calc(26vh-15px)] left-0 w-full z-50 shadow-lg backdrop-blur-[100px]"
-                    : "flex flex-col w-full lg:hidden z-50 my-5"
+                    ? "left-0 w-full z-50 lg:hidden my-5"
+                    : " w-full lg:hidden z-50 my-5"
                 } flex flex-col transition duration-300 ease-in-out`}
-                style={{
-                  background: stickyMenu && scrollDirectionUp
-                    ? "linear-gradient(90deg, #a8363686, #38bff8, #a8363686)"
-                    : "transparent"
-                }}
+                // style={{
+                //   background:
+                //     stickyMenu && scrollDirectionUp
+                //       ? "linear-gradient(90deg, #a8363686, #38bff8, #a8363686)"
+                //       : "",
+                // }}
               >
                 <>
                   {navigation.map((item, index) => (
                     <Link
                       key={index}
                       href={item.href}
-                     
-                      className={`${
-                        stickyMenu && scrollDirectionUp
-                          ? "ml-10 my-2"
-                          : "px-2 py-2"
-                      } w-full dark:focus:text-sky-500 dark:hover:text-sky-500 text-gray-500 rounded-md dark:text-gray-300 hover:text-sky-500 focus:text-sky-500  focus:outline-none`}
+                      className=" px-2 py-2 w-full dark:focus:text-sky-500 dark:hover:text-sky-500 text-gray-500 rounded-md dark:text-gray-300 hover:text-sky-500 focus:text-sky-500  focus:outline-none"
                     >
                       {item.name}
                     </Link>
                   ))}
                   <Link
                     href="/"
-                    className={`${
-                      stickyMenu && scrollDirectionUp
-                        ? "max-w-[85%] flex justify-center py-2 mt-4 mx-auto"
-                        : "px-6 py-2 mt-3 "
-                    } w-full text-center text-white bg-sky-600 rounded-md lg:ml-5`}
+                    className=" w-full text-center text-white bg-sky-600 rounded-md lg:ml-5 px-6 py-2 mt-3 "
                   >
                     LOGIN
                   </Link>
