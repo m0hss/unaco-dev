@@ -26,47 +26,49 @@ export const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [stickyMenu, setStickyMenu] = useState(false);
   const [scrollDirectionUp, setScrollDirectionUp] = useState(false);
-  let lastScroll = 0;
+  const [showButton, setShowButton] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Function to handle scroll
   const handleScroll = () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > lastScroll) {
-      setScrollDirectionUp(false); // Scrolling down
-    } else {
-      setScrollDirectionUp(true); // Scrolling up
-    }
-    lastScroll = currentScroll;
-    // Add sticky menu logic
-    if (currentScroll >= 80) {
-      setStickyMenu(true);
-    } else {
-      setStickyMenu(false);
-    }
+    const currentScrollY = window.scrollY;
+    // Update scroll direction
+    setScrollDirectionUp(currentScrollY < lastScrollY || currentScrollY === 0);
+    // Toggle sticky menu and hamburger visibility
+    setStickyMenu(currentScrollY >= 80);
+    setShowButton(currentScrollY === 0);
+    setLastScrollY(currentScrollY);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => window.removeEventListener("scroll", handleScroll);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   // Sticky menu
-  const handleStickyMenu = () => {
-    if (window.scrollY >= 80) {
-      setStickyMenu(true);
-    } else {
-      setStickyMenu(false);
-    }
-  };
+  // const handleStickyMenu = () => {
+  //   if (window.scrollY >= 80) {
+  //     setStickyMenu(true);
+  //   } else {
+  //     setStickyMenu(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleStickyMenu);
-    return () => {
-      window.removeEventListener("scroll", handleStickyMenu); // Cleanup event listener
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleStickyMenu);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleStickyMenu); // Cleanup event listener
+  //   };
+  // }, []);
 
   const toggleLanguageMenu = () => {
     setShowLanguages((prev) => !prev);
@@ -86,65 +88,6 @@ export const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  const disclosureButtonRef = useRef<HTMLButtonElement | null>(null);
-  const disclosurePanelRef = useRef<HTMLDivElement | null>(null);
-  const prevScrollY = useRef(0);
-  
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        disclosurePanelRef.current &&
-        !disclosurePanelRef.current.contains(event.target as Node) &&
-        disclosureButtonRef.current &&
-        !disclosureButtonRef.current.contains(event.target as Node)
-      ) {
-        // Close the Disclosure if click is outside
-        disclosureButtonRef.current?.click();
-      }
-    };
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Close the Disclosure if scrolling up (toward the top)
-      if (currentScrollY < prevScrollY.current && disclosurePanelRef.current) {
-        disclosureButtonRef.current?.click();
-      }
-
-      // Update the previous scroll position
-      prevScrollY.current = currentScrollY;
-    };
-
-    // Attach listeners when the panel is open
-    document.addEventListener("mousedown", handleOutsideClick);
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup listeners on component unmount
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleButtonClick = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    isOpen: boolean,
-    setOpen: (value: boolean) => void,
-    close: () => void
-  ) => {
-    if (window.scrollY === 0) {
-      setOpen(!isOpen); // Directly toggle if already at the top
-    } else {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY === 0) {
-          disclosureButtonRef.current?.click(); // Open the panel when at the top
-        }
-      });
-    }
-  };
 
   return (
     <header
@@ -249,15 +192,14 @@ export const Navbar = () => {
             <>
               <DisclosureButton
                 aria-label="Toggle Menu"
-                ref={disclosureButtonRef}
-                onClick={(event) =>
-                  handleButtonClick(
-                    event,
-                    open,
-                    open ? close : (value) => (open = value),
-                    close
-                  )
-                }
+                // onClick={(event) =>
+                //   handleButtonClick(
+                //     event,
+                //     open,
+                //     open ? close : (value) => (open = value),
+                //     close
+                //   )
+                // }
                 className="text-gray-500 flex rounded-md lg:hidden hover:text-sky-500 focus:text-sky-500 focus:bg-sky-100 focus:outline-none dark:focus:bg-trueGray-700"
               >
                 {/* Custom Hamburger Button */}
@@ -279,24 +221,40 @@ export const Navbar = () => {
                   ></span>
                 </div>
               </DisclosureButton>
-
               <DisclosurePanel
-                ref={disclosurePanelRef}
-                className="flex flex-col w-full my-5 lg:hidden z-50"
+                className={`${
+                  stickyMenu && scrollDirectionUp
+                    ? "fixed top-[64px] h-[calc(26vh-15px)] left-0 w-full z-50 shadow-lg backdrop-blur-[100px]"
+                    : "flex flex-col w-full lg:hidden z-50 my-5"
+                } flex flex-col transition duration-300 ease-in-out`}
+                style={{
+                  background: stickyMenu && scrollDirectionUp
+                    ? "linear-gradient(90deg, #a8363686, #38bff8, #a8363686)"
+                    : "transparent"
+                }}
               >
                 <>
                   {navigation.map((item, index) => (
                     <Link
                       key={index}
                       href={item.href}
-                      className="w-full px-2 py-2 dark:focus:text-sky-500 dark:hover:text-sky-500 text-gray-500 rounded-md dark:text-gray-300 hover:text-sky-500 focus:text-sky-500  focus:outline-none"
+                     
+                      className={`${
+                        stickyMenu && scrollDirectionUp
+                          ? "ml-10 my-2"
+                          : "px-2 py-2"
+                      } w-full dark:focus:text-sky-500 dark:hover:text-sky-500 text-gray-500 rounded-md dark:text-gray-300 hover:text-sky-500 focus:text-sky-500  focus:outline-none`}
                     >
                       {item.name}
                     </Link>
                   ))}
                   <Link
                     href="/"
-                    className="w-full px-6 py-2 mt-3 text-center text-white bg-sky-600 rounded-md lg:ml-5"
+                    className={`${
+                      stickyMenu && scrollDirectionUp
+                        ? "max-w-[85%] flex justify-center py-2 mt-4 mx-auto"
+                        : "px-6 py-2 mt-3 "
+                    } w-full text-center text-white bg-sky-600 rounded-md lg:ml-5`}
                   >
                     LOGIN
                   </Link>

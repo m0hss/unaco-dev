@@ -25,7 +25,7 @@
     height: 8%;
     z-index: 100;
     backdrop-filter: blur(100px);
-    background: linear-gradient(90deg, #0a0a0a0b, #38bff896, #fabe1874, #a836369c); 
+    background: linear-gradient(90deg, #a8363686, #38bff8, #a8363686); 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, backdrop-filter 0.3s;
   }
