@@ -33,11 +33,11 @@ export const Partners = () => {
           <motion.div
             className="flex absolute top-0 left-0 w-[100%] sm:w-[100%]"
             animate={{
-              x:  typeof window !== 'undefined' && window.innerWidth < 768 ? ["0%", "-420%"]: ["0%", "-200%"], // Move from 0% to -100% of the container width
+              x:  typeof window !== 'undefined' && window.innerWidth < 768 ? ["0%", "-410%"]: ["0%", "-100%"], // Move from 0% to -100% of the container width
             }}
             transition={{
               repeat: Infinity, // Loop infinitely
-              duration: typeof window !== 'undefined' && window.innerWidth < 768 ? 40 : 80,
+              duration: typeof window !== 'undefined' && window.innerWidth < 768 ? 40 : 60,
               ease: "linear", // Smooth, consistent scrolling
             }}
             // style={{ whiteSpace: "nowrap" }} // Prevent wrapping
