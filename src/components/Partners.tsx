@@ -28,16 +28,16 @@ export const Partners = () => {
           {t("trustedBy")} <span className="text-sky-500">2000+</span>{" "}
           {t("partnership")}
         </div>
-        <div className=" py-8 mt-8 relative overflow-hidden">
+        <div className=" py-8 my-8 relative overflow-hidden">
           {/* First motion container for the first set of logos */}
           <motion.div
-            className="flex absolute top-0 left-0 w-[200%]"
+            className="flex absolute top-0 left-0 w-[100%] sm:w-[100%]"
             animate={{
-              x: ["0%", "-70%"], // Move from 0% to -100% of the container width
+              x:  typeof window !== 'undefined' && window.innerWidth < 768 ? ["0%", "-420%"]: ["0%", "-200%"], // Move from 0% to -100% of the container width
             }}
             transition={{
               repeat: Infinity, // Loop infinitely
-              duration: 20, // Adjust speed as necessary
+              duration: typeof window !== 'undefined' && window.innerWidth < 768 ? 40 : 80,
               ease: "linear", // Smooth, consistent scrolling
             }}
             // style={{ whiteSpace: "nowrap" }} // Prevent wrapping

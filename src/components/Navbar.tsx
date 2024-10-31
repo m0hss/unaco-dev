@@ -192,7 +192,7 @@ export const Navbar = () => {
               <DisclosurePanel
                 className={`${
                   stickyMenu && scrollDirectionUp
-                    ? "left-0 w-full z-50 lg:hidden my-5"
+                    ? "left-0 w-full z-50 lg:hidden mt-5"
                     : " w-full lg:hidden z-50 my-5"
                 } flex flex-col transition duration-300 ease-in-out`}
                 // style={{
