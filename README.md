@@ -54,7 +54,7 @@ Deploy this template using [Vercel](https://vercel.com?utm_source=github&utm_med
 
 ## Author
 
-[!SASSI MED(https://m0fix.me)]
+[SASSI MED](https://m0fix.me)
 ---
 
 [![image](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=web3templates&utm_campaign=oss)
